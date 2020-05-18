@@ -1,4 +1,6 @@
 @extends('admin.master')
+
+
 @section('content')
 <div class="col-lg-12">
     <h1 class="page-header">Bill
@@ -6,7 +8,7 @@
     </h1>
 </div>
 <!-- /.col-lg-12 -->
-<section class="content">
+
     <div class="row">
         <div class="col-12">
                 <div class="card card-primary">
@@ -51,7 +53,8 @@
                                 @endif
                             </td>
                             <td class="center"><a class="btn btn-danger" href="{!! URL::route('admin.bill.getEdit', $item->id) !!}">Detail</a></td>
-                            <td class="center"><a class="btn btn-primary" onclick=" return xacnhanxoa('Are you sure you want to delete?')" href="{!! URL::route('admin.bill.getDelete', $item->id) !!}">Delete</a></td>
+                            <td class="center"><a class="btn btn-primary" id="delete" ref="{{ $item->id }}"
+                            ref1="delete" href="javascript:" >Delete</a></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -62,11 +65,11 @@
         <!-- /.row -->
     </div>
       <!-- /.container-fluid -->
-</section>
+
     
 <!-- /.content -->
-@section('script')
 
-@endsection()
+
+
 
 @endsection()

@@ -220,4 +220,8 @@
     <!-- /.content -->
   </div>
 
+{{-- ChartScript --}}
+{!! $Chart->script() !!}
+{!! $ChartUser->script() !!}
+
 @endsection

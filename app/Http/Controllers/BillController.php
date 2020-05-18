@@ -8,6 +8,7 @@ use App\User;
 use App\Order;
 use App\Order_detail;
 use App\Product;
+use Alert;
 class BillController extends Controller
 {
     public function getList() {
@@ -46,6 +47,6 @@ class BillController extends Controller
     {
         $bill = Order::find($id);
         $bill->delete();
-        return redirect()->route('admin.bill.list')->with(['flash_level'=>'success','flash_message'=>'Delete Order Complete Success!']);
+        return redirect()->route('admin.bill.list')->with(['flash_level'=>'success','flash_message'=>'Delete Order Complete Success!']);;
     }
 }

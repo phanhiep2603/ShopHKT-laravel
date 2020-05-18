@@ -1,17 +1,15 @@
-$(document).ready(function() {
-	$('#dataTables-example').DataTable({
-		responsive: true
-	});
-});
+
 
 $("div.alert").delay(3000).slideUp();
 
-function xacnhanxoa(msg) {
-	if(window.confirm(msg)) {
+function xoa(message) {
+	if(window.confirm(message)) {
 		return true;
 	}
 	return false;
 }
+
+
 $(document).ready( function () {
    $('#addImages').click(function(){
       $('#insert').append('<div class="form-group"><input type="file" name="fEditDetail[]"></div>');
@@ -24,6 +22,44 @@ $(document).ready( function () {
    });
 });
 
+$(document).on('click','#delete',function(e){
+   var id = $(this).attr('ref');
+   var deleteFunction = $(this).attr('ref1');
+      swal.fire({
+         title: "Are you sure want to delete ?", 
+         text: "You won't be able to revert this!",
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#d33',
+         cancelButtonColor: '#3085d6',
+         confirmButtonText: 'Yes, delete it!',
+         cancelButtonText: 'No, Cancle delete'  
+      }).then((result) => {
+         if(result.value)
+         {
+            
+            Swal.fire({
+               title: 'Deleted!',
+               text: "Deleted Successfully",
+               icon: 'success',
+               timer: 3000,
+               timerProgressBar: true,
+            });
+            window.location.href=deleteFunction+"/"+id
+         }
+         
+         Swal.fire({
+            title: 'Oops....',
+            text: "Somethings went wrong",
+            icon: 'error',
+            timer: 3000,
+            timerProgressBar: true,
+            
+         });
+         window.location.href=""
+      });
+      
+});
 $(document).ready( function () {
    $('a#del_image').on('click',(function(){
       var url = "http://localhost/shopbh/admin/product/delimg/";

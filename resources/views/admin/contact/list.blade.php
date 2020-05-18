@@ -51,7 +51,7 @@
 
                                 </td>
                                 <td class="center"><a class="btn btn-primary" href="{!! URL::route('admin.contact.getEdit', $item->id) !!}">Detail</a></td>
-                                <td class="center"><a class="btn btn-danger" onclick=" return xacnhanxoa('Are you sure you want to delete?') " href="{!! URL::route('admin.contact.getDelete', $item->id) !!}">Delete</a></td>
+                                <td class="center"><a class="btn btn-danger" id="delete" href="javascript:" ref="{{$item->id}}" ref1="delete">Delete</a></td>
                             </tr>
                             @endforeach
                         </tbody>

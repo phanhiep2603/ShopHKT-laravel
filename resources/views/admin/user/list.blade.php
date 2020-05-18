@@ -51,7 +51,7 @@
                                     <img src="{!! url('public/user/img/offline.png') !!}" width="10" height="10"> Offline
                                 @endif
                             </td>
-                            <td class="center"><a class="btn btn-danger" onclick=" return xacnhanxoa('Are you sure you want to delete?')" href="{!! URL::route('admin.user.getDelete', $item['id']) !!}"> Delete</a></td>
+                            <td class="center"><a class="btn btn-danger" id="delete" href="javascript:" ref="{{$item['id']}}" ref1="delete"> Delete</a></td>
                             <td class="center"><a class="btn btn-primary" href="{!! URL::route('admin.user.getEdit', $item['id']) !!}">Edit</a></td>
                         </tr>
                         @endforeach

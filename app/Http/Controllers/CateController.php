@@ -38,12 +38,17 @@ class CateController extends Controller
 	    	$cate->delete($id);
 	    	return redirect()->route('admin.cate.list')->with(['flash_level'=>'success','flash_message'=>'Delete Category Complete Success!']);
     	} else {
-    		echo "<script type='text/javascript'>
-    			alert('This Category Can Not Delete!');
-    			window.location = '";
+		    echo 
+		    "
+		    <script type='text/javascript'>
+		    	Swal.fire(This Category Can Not Delete!');
+			    window.location = '
+			    ";
     				echo route('admin.cate.list');
-    		echo "';
-    		</script>";
+			    echo 
+			    "';
+		    </script>
+		    ";
     	}
 
     }

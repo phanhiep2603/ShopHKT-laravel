@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Admin Shop HKT | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}>
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
@@ -27,18 +27,15 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link href="{!! url('user/css/flexslider.css') !!}" type="text/css" media="screen" rel="stylesheet">
-    <link href="{!! url('user/css/jquery.fancybox.css') !!}" rel="stylesheet">
     <link href="{!! url('user/css/cloud-zoom.css') !!}" rel="stylesheet">
     <link href="{!! url('user/css/portfolio.css') !!}" rel="stylesheet">
     <link rel="stylesheet" href="{!! url('user/css/font-awesome.min.css') !!}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="{{asset('plugins/sweetalert2/sweetalert2.css')}}"> 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="{{ asset('admin/js/ckeditor/ckeditor.js') }}"></script>
     <script type="text/javascript" src="{{ asset('admin/js/ckfinder/ckfinder.js') }}"></script>
-    
     <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link href="{{ asset('admin/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
@@ -50,10 +47,12 @@
     
 
     @yield('css')
+    
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-    @include('sweet::alert')
+    
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
@@ -232,7 +231,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">@yield('header')</h1>
+                        <h1 class="m-0 text-dark">@yield('header')@include('sweet::alert')</h1>
                     </div><!-- /.col -->
                     <!-- /.col -->
                 </div><!-- /.row -->
@@ -299,18 +298,16 @@
 <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('dist/js/demo.js')}}"></script>
+<script src="{{asset('plugins/sweetalert2/sweetalert2.all.min.js')}}"></script>
+
+
+
 <script src="{{ url('admin/bower_components/jquery/dist/jquery.min.js') }}"></script>
-<script defer src="{!! url('user/js/custom.js') !!}"></script>
 <script src="{!! url('user/js/jquery.js') !!}"></script> 
 <script src="{!! url('user/js/bootstrap.js') !!}"></script> 
 <script src="{!! url('user/js/respond.min.js') !!}"></script> 
 <script src="{!! url('user/js/application.js') !!}"></script> 
-<script src="{!! url('user/js/bootstrap-tooltip.js') !!}"></script> 
-<script defer src="{!! url('user/js/jquery.fancybox.js') !!}"></script> 
+<script src="{!! url('user/js/bootstrap-tooltip.js') !!}"></script>
 <script defer src="{!! url('user/js/jquery.flexslider.js') !!}"></script> 
 <script type="text/javascript" src="{!! url('user/js/jquery.tweet.js') !!}"></script> 
 <script  src="{!! url('user/js/cloud-zoom.1.0.2.js') !!}"></script> 
@@ -330,8 +327,6 @@
 <!-- Metis Menu Plugin JavaScript -->
 <script src="{{ asset('admin/bower_components/metisMenu/dist/metisMenu.min.js') }}"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="{{ asset('admin/dist/js/sb-admin-2.js') }}"></script>
 
 
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
@@ -339,8 +334,7 @@
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('dist/js/adminlte.min.js"></script>
-<script src="{{ asset('dist/js/demo.js"></script>
+
     <script>
   $(function () {
     $("#example1").DataTable({
@@ -358,9 +352,7 @@
     });
   });
 </script>
-{{-- ChartScript --}}
-{!! $Chart->script() !!}
-{!! $ChartUser->script() !!}
+
 @yield('script')
 </body>
 </html>
