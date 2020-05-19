@@ -4,6 +4,7 @@
     list-style: none;
 }
 
+
 .timeline:before {
     content: " ";
     position: absolute;

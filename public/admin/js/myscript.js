@@ -60,6 +60,20 @@ $(document).on('click','#delete',function(e){
       });
       
 });
+
+$(document).ready(function() {
+   $('#popupclick').click(function(){
+   var frametarget = $(this).attr('href');
+   var targetmodal = $(this).attr('data-target');
+   if (targetmodal === undefined) {
+     targetmodal = '#exampleModal';
+   }
+   $('iframe').attr("src", frametarget );   
+   $(targetmodal).modal('show');
+   return false;
+   });
+});
+
 $(document).ready( function () {
    $('a#del_image').on('click',(function(){
       var url = "http://localhost/shopbh/admin/product/delimg/";
