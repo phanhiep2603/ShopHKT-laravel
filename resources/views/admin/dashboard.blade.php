@@ -160,9 +160,9 @@
                     </thead>
                     <tbody>
                       <tr>
-                          <td> {{$totaltoday }}&#160VNĐ </td>
-                          <td> {{$totalweek }}&#160VNĐ </td>
-                          <td> {{$totalmonth }}&#160VNĐ </td>
+                          <td> ${{$totaltoday }} </td>
+                          <td> ${{$totalweek }} </td>
+                          <td> ${{$totalmonth }} </td>
                       </tr>
                     </tbody>
                 </table> 

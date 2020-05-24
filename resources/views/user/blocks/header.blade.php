@@ -12,7 +12,7 @@
                                 <li><a class="checkout" href="{!! url('check-out') !!}">CheckOut</a> </li>
                                 <li><a class="myaccount" href="{!! url('myaccount') !!}">My Account</a> </li>
                                 @if(Auth::check())
-                                    <li><a class="log-out" href="{!! url('logout') !!}">Logout</a></li>
+                                    <li><a class="log-out" aria-hidden="true" href="{!! url('logout') !!}">Logout</a></li>
                                 @endif
                             </ul>
                         </div>

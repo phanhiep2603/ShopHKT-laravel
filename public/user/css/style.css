@@ -38,7 +38,7 @@ h2 { font-size:24px }
 color: #96979d;
 }
 /* ------------ Header ------------ */
-.headerstrip { height:72px; background:#F54F4D }
+.headerstrip { height:72px; background:#4da6ff }
 .logo { width:272px; background-color:#fff; text-align:center; height:72px; line-height:72px }
 #topnav .navbar-inner { background:none; border:none; box-shadow:none; filter:none }
 #topnav ul { padding:20px 0 0 0 }
