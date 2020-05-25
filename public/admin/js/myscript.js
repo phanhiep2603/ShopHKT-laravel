@@ -35,30 +35,17 @@ $(document).on('click','#delete',function(e){
          confirmButtonText: 'Yes, delete it!',
          cancelButtonText: 'No, Cancle delete'  
       }).then((result) => {
+         console.log(result)
          if(result.value)
          {
-            
+            window.location.href=deleteFunction+"/"+id
             Swal.fire({
                title: 'Deleted!',
                text: "Deleted Successfully",
-               icon: 'success',
-               timer: 3000,
-               timerProgressBar: true,
+               icon: 'success'
             });
-            window.location.href=deleteFunction+"/"+id
          }
-         
-         Swal.fire({
-            title: 'Oops....',
-            text: "Somethings went wrong",
-            icon: 'error',
-            timer: 3000,
-            timerProgressBar: true,
-            
-         });
-         window.location.href=""
       });
-      
 });
 
 $(document).ready(function() {

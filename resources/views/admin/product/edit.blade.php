@@ -59,15 +59,15 @@
                             </div>
                             <div class="form-group">
                                 <label>Name</label>
-                                <input class="form-control" name="txtName" placeholder="Please Enter Username" value="{!! old('txtName',isset($product) ? $product['name'] : null) !!}" />
+                                <input class="form-control" name="txtName" placeholder="Please Enter Username" value="{!! old('txtName',isset($product) ? $product['name'] : null) !!}" required />
                             </div>
                             <div class="form-group">
                                 <label>Price</label>
-                                <input class="form-control" name="txtPrice" placeholder="Please Enter Price" value="{!! old('txtPrice',isset($product) ? $product['price'] : null) !!}" />
+                                <input class="form-control" name="txtPrice" placeholder="Please Enter Price" value="{!! old('txtPrice',isset($product) ? $product['price'] : null) !!}" required />
                             </div>
                             <div class="form-group">
                                 <label>Price Sale</label>
-                                <input class="form-control" name="txtPriceNew" placeholder="Please Enter Price" value="{!! old('txtPriceNew',isset($product) ? $product['price_new'] : null) !!}" />
+                                <input class="form-control" name="txtPriceNew" placeholder="Please Enter Price" value="{!! old('txtPriceNew',isset($product) ? $product['price_new'] : null) !!}" required />
                             </div>
                             <div class="form-group">
                                 <label>Status</label>
@@ -78,12 +78,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Intro</label>
-                                <textarea class="form-control" rows="3" name="txtIntro">{!! old('txtIntro',isset($product) ? $product['intro'] : null) !!}</textarea>
+                                <textarea class="form-control" rows="3" name="txtIntro" required>{!! old('txtIntro',isset($product) ? $product['intro'] : null) !!}</textarea>
                                 <script type="text/javascript">CKEDITOR.replace("txtIntro")</script>
                             </div>
                             <div class="form-group">
                                 <label>Content</label>
-                                <textarea class="form-control" rows="3" name="txtContent">{!! old('txtContent',isset($product) ? $product['content'] : null) !!}</textarea>
+                                <textarea class="form-control" rows="3" name="txtContent" required>{!! old('txtContent',isset($product) ? $product['content'] : null) !!}</textarea>
                                 <script type="text/javascript">CKEDITOR.replace("txtContent")</script>
                             </div>
                             <div class="form-group">
@@ -97,11 +97,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Product Keywords</label>
-                                <input class="form-control" name="txtKeywords" placeholder="Please Enter Category Keywords" value="{!! old('txtKeywords',isset($product) ? $product['keywords'] : null) !!}"/>
+                                <input class="form-control" name="txtKeywords" placeholder="Please Enter Category Keywords" value="{!! old('txtKeywords',isset($product) ? $product['keywords'] : null) !!}" required />
                             </div>
                             <div class="form-group">
                                 <label>Product Description</label>
-                                <textarea class="form-control" rows="3" name="txtDescription" >{!! old('txtDescription',isset($product) ? $product['description'] : null) !!}</textarea>
+                                <textarea class="form-control" rows="3" name="txtDescription" required >{!! old('txtDescription',isset($product) ? $product['description'] : null) !!}</textarea>
                                 <script type="text/javascript">CKEDITOR.replace("txtDescription")</script>
                                 <div><br></div><div><br></div><div><br></div>
                             </div>

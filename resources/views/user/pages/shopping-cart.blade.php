@@ -55,7 +55,7 @@
                 <td><span class="bold">${!! Cart::subtotal(); !!}</span></td>
               </tr>
               <tr>
-                <td><span class="extra bold">VAT (5%) :</span></td>
+                <td><span class="extra bold">VAT (20%) :</span></td>
                 <td><span class="bold">${!! Cart::tax(); !!}</span></td>
               </tr>
               <tr>

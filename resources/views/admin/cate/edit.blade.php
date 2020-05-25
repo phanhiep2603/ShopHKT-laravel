@@ -29,15 +29,15 @@
                             </div>
                             <div class="form-group">
                                 <label>Category Name</label>
-                                <input class="form-control" name="txtCateName" placeholder="Please Enter Category Name" value="{!! old('txtCateName',isset($data) ? $data['name'] : null) !!}" />
+                                <input class="form-control" name="txtCateName" placeholder="Please Enter Category Name" value="{!! old('txtCateName',isset($data) ? $data['name'] : null) !!}" required />
                             </div>
                             <div class="form-group">
                                 <label>Category Keywords</label>
-                                <input class="form-control" name="txtKeywords" placeholder="Please Enter Category Keywords" value="{!! old('txtKeywords',isset($data) ? $data['keywords'] : null) !!}"/>
+                                <input class="form-control" name="txtKeywords" placeholder="Please Enter Category Keywords" value="{!! old('txtKeywords',isset($data) ? $data['keywords'] : null) !!}" required/>
                             </div>
                             <div class="form-group">
                                 <label>Category Description</label>
-                                <textarea class="form-control" rows="3" name="txtDescription">{!! old('txtDescription',isset($data) ? $data['description'] : null) !!}</textarea>
+                                <textarea class="form-control" rows="3" name="txtDescription" required>{!! old('txtDescription',isset($data) ? $data['description'] : null) !!}</textarea>
                             </div>
                             <button type="submit" class="btn btn-danger">Category Edit</button>
                             <button type="reset" class="btn btn-warning">Reset</button>

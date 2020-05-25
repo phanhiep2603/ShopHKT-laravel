@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2020 at 08:34 AM
+-- Generation Time: May 25, 2020 at 07:28 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -44,11 +44,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `alias`, `parent_id`, `keywords`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Quần', 'quan', 0, 'Quan', 'Quần Nam thời trang', '2020-05-10 09:02:10', '2020-05-12 05:29:20'),
-(2, 'Áo', 'ao', 0, 'Ao', 'Áo nam thời trang', '2020-05-12 05:30:07', '2020-05-12 05:30:07'),
-(3, 'Quần Jean', 'quan-jean', 1, 'Jean', 'Quần Jean Nam', '2020-05-12 05:31:16', '2020-05-12 05:31:16'),
-(4, 'Áo Thun', 'ao-thun', 2, 'T-shirt', 'Áo thun nam', '2020-05-12 05:32:13', '2020-05-12 05:32:13'),
-(5, 'Quần Jogger', 'quan-jogger', 1, 'Jogger', 'Quần Jogger', '2020-05-12 05:32:38', '2020-05-12 05:32:38');
+(6, 'Shirts', 'shirts', 0, 'Shirts', 'Shirts Just 4 men by HKTShop', '2020-05-25 02:04:02', '2020-05-25 02:04:02'),
+(7, 'Trousers', 'trousers', 0, 'Trousers', 'The best Trousers for men', '2020-05-25 02:06:36', '2020-05-25 02:06:36'),
+(8, 'T-Shirts', 't-shirts', 6, 'Tshirts', 'The best T-shirt for men', '2020-05-25 02:07:28', '2020-05-25 02:07:28'),
+(9, 'Jeans', 'jeans', 7, 'Jeans', 'The best Jeans for men', '2020-05-25 02:07:47', '2020-05-25 02:07:47'),
+(10, 'Jogger', 'jogger', 7, 'Jogger', 'The best Jogger 4 men', '2020-05-25 02:08:08', '2020-05-25 02:08:08');
 
 -- --------------------------------------------------------
 
@@ -67,6 +67,13 @@ CREATE TABLE `contacts` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `date_contact` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `note`, `status`, `created_at`, `updated_at`, `date_contact`) VALUES
+(7, 'Phan Trần Hoàng Hiệp', 'phanhiep2603@gmail.com', '0908122860', 'the best my choice', '2', '2020-05-25 05:22:21', '2020-05-25 05:23:07', '2020-05-25 12:22:21');
 
 -- --------------------------------------------------------
 
@@ -97,7 +104,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2020_05_14_112032_alter_column_code_and_time_code_in_table_users', 2),
 (11, '2020_05_16_170105_alter_colum_date_contact_in_table_contacts', 3),
 (12, '2020_05_16_170724_alter_colum_date_contact_in_table_contacts', 4),
-(13, '2020_05_18_131512_alter_colum_date_create_in_table_users', 5);
+(13, '2020_05_18_131512_alter_colum_date_create_in_table_users', 5),
+(14, '2020_05_19_103118_create_comments_table', 6),
+(15, '2020_05_19_104305_create_comments_table', 7);
 
 -- --------------------------------------------------------
 
@@ -122,7 +131,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `date_order`, `total`, `payment`, `status`, `note`, `user_id`, `created_at`, `updated_at`) VALUES
-(12, '2020-05-17 00:08:54', 471900, 'Cash On Delivery', '3', '', 6, '2020-05-17 17:08:54', '2020-05-17 17:16:16');
+(42, '2020-05-25 12:16:00', 108.9, 'Cash On Delivery', '3', 'giao hàng đúng lúc', 5, '2020-05-25 05:16:00', '2020-05-25 05:25:22');
 
 -- --------------------------------------------------------
 
@@ -146,7 +155,8 @@ CREATE TABLE `order_details` (
 --
 
 INSERT INTO `order_details` (`id`, `quantity`, `unit_price`, `size`, `product_id`, `order_id`, `created_at`, `updated_at`) VALUES
-(12, 1, 390000, 'M', 2, 12, '2020-05-17 17:08:54', '2020-05-17 17:08:54');
+(42, 1, 65, '28', 10, 42, '2020-05-25 05:16:00', '2020-05-25 05:16:00'),
+(43, 1, 25, 'S', 9, 42, '2020-05-25 05:16:00', '2020-05-25 05:16:00');
 
 -- --------------------------------------------------------
 
@@ -189,8 +199,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `alias`, `price`, `price_new`, `status`, `intro`, `content`, `image`, `keywords`, `description`, `user_id`, `cate_id`, `created_at`, `updated_at`) VALUES
-(2, 'Polo Academy', 'polo-academy', 400000, 390000, '1', '<h1 style=\"text-align:center\">Polo</h1>', '<h1 style=\"text-align:center\">Academy</h1>', 'aca-polo-gra-1-w.png', 'Ao', '<p><strong>Chi tiết sản phẩm:</strong><br />\r\n<span style=\"color:rgb(72, 72, 72); font-family:pn,sans-serif; font-size:14px\">• 100% Cotton</span><br />\r\n<span style=\"color:rgb(72, 72, 72); font-family:pn,sans-serif; font-size:14px\">• Form áo cơ bản.</span><br />\r\n<span style=\"color:rgb(72, 72, 72); font-family:pn,sans-serif; font-size:14px\">• Họa tiết được thêu trực tiếp lên áo</span></p>', 5, 4, '2020-05-12 05:36:48', '2020-05-13 03:39:40'),
-(3, 'aa', 'aa', 67867, 1551515, '1', '<p>aa</p>', '<p>aâ</p>', 'Untitled-2.jpg', 'aa', '<p>aâ</p>', 5, 1, '2020-05-16 12:49:01', '2020-05-17 14:43:14');
+(4, 'OVERSIZED T-SHIRTS', 'oversized-t-shirts', 20, 0, '1', '<p>New product</p>', '<p>Fit: Relaxed fit</p>\r\n\r\n<p>Heavy Weight<br />\r\nRaw edge hem<br />\r\nPoint logo label<br />\r\nImported</p>\r\n\r\n<p>Fabric:&nbsp; 65% Cotton / 35% Poly<br />\r\nModel is 6\' 2\" / 170lbs, wears size L</p>', 'HT005-WHITE-2_700x700.jpg', 'Tshirts', '<p>Description for your choose</p>\r\n\r\n<table style=\"border-collapse:collapse; border-spacing:0px; border:0px; color:rgb(17, 17, 17); float:left; font-family:questrial; font-size:12px; font-stretch:inherit; font-variant-east-asian:inherit; font-variant-numeric:inherit; line-height:inherit; margin:0px 0px 20px; padding:0px; width:505px\">\r\n	<tbody style=\"margin: 0px; padding: 0px; border: 0px; font: inherit;\">\r\n		<tr style=\"margin: 0px; padding: 0px; border-width: 1px 0px; border-top-style: solid; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: rgb(220, 220, 220); border-right-color: initial; border-bottom-color: rgb(220, 220, 220); border-left-color: initial; border-image: initial; font: inherit; text-align: center;\">\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: solid; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: rgb(220, 220, 220); border-image: initial; font: inherit;\">&nbsp;</td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\"><strong style=\"border:0px; font-family:inherit; font-size:inherit; font-stretch:inherit; font-style:inherit; font-variant:inherit; line-height:inherit; margin:0px; padding:0px\">S</strong></td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\"><strong style=\"border:0px; font-family:inherit; font-size:inherit; font-stretch:inherit; font-style:inherit; font-variant:inherit; line-height:inherit; margin:0px; padding:0px\">M</strong></td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\"><strong style=\"border:0px; font-family:inherit; font-size:inherit; font-stretch:inherit; font-style:inherit; font-variant:inherit; line-height:inherit; margin:0px; padding:0px\">L</strong></td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\"><strong style=\"border:0px; font-family:inherit; font-size:inherit; font-stretch:inherit; font-style:inherit; font-variant:inherit; line-height:inherit; margin:0px; padding:0px\">XL</strong></td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\"><strong style=\"border:0px; font-family:inherit; font-size:inherit; font-stretch:inherit; font-style:inherit; font-variant:inherit; line-height:inherit; margin:0px; padding:0px\">XXL</strong></td>\r\n		</tr>\r\n		<tr style=\"margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(220, 220, 220); border-left-color: initial; border-image: initial; font: inherit; text-align: center;\">\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: solid; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: rgb(220, 220, 220); border-image: initial; font: inherit;\"><span style=\"border:0px; font:inherit; margin:0px; padding:0px\"><strong style=\"border:0px; font-family:inherit; font-size:inherit; font-stretch:inherit; font-style:inherit; font-variant:inherit; line-height:inherit; margin:0px; padding:0px\">CHEST</strong>&nbsp;</span><span style=\"border:0px; font:inherit; margin:0px; padding:0px\">(in.)</span></td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\">44</td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\">46</td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\">48</td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\">50</td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\">52</td>\r\n		</tr>\r\n		<tr style=\"margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(220, 220, 220); border-left-color: initial; border-image: initial; font: inherit; text-align: center;\">\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: solid; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: rgb(220, 220, 220); border-image: initial; font: inherit;\"><span style=\"border:0px; font:inherit; margin:0px; padding:0px\"><strong style=\"border:0px; font-family:inherit; font-size:inherit; font-stretch:inherit; font-style:inherit; font-variant:inherit; line-height:inherit; margin:0px; padding:0px\">LENGTH</strong>&nbsp;</span><span style=\"border:0px; font:inherit; margin:0px; padding:0px\">(in.)</span></td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\">30</td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\">31</td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\">32</td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\">33</td>\r\n			<td style=\"margin: 0px; padding: 4px; border-width: 0px 1px 0px 0px; border-top-style: initial; border-right-style: solid; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: rgb(220, 220, 220); border-bottom-color: initial; border-left-color: initial; border-image: initial; font: inherit;\">34</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>', 5, 8, '2020-05-25 02:12:06', '2020-05-25 02:20:21'),
+(5, 'SLIT LONG T-SHIRTS - RED', 'slit-long-t-shirts---red', 22, 0, '1', '<p>New products</p>', '<p><strong>Fit: Long Slim</strong></p>\r\n\r\n<ul>\r\n	<li>Crew neck</li>\r\n	<li>Longer back with split sides</li>\r\n	<li>Longline cut</li>\r\n	<li>Cut longer than standard length</li>\r\n	<li>Machine wash cold</li>\r\n	<li>Fabric:&nbsp; 100% Cotton</li>\r\n</ul>\r\n\r\n<p>Model is 6\'\' 1\" / 167lbs, wears size M</p>\r\n\r\n<div id=\"gtx-trans\" style=\"position: absolute; left: 333px; top: 204px;\">\r\n<div class=\"gtx-trans-icon\">&nbsp;</div>\r\n</div>', 'HT002-RED-1_700x700.jpg', 'Tshirts', '<p>Description for your choose</p>\r\n\r\n<table style=\"border-collapse:collapse; border-spacing:0px; border:0px; color:rgb(17, 17, 17); float:left; font-family:questrial; font-size:12px; font-stretch:inherit; font-variant-east-asian:inherit; font-variant-numeric:inherit; line-height:inherit; margin:0px 0px 20px; padding:0px; width:505px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td><strong>S</strong></td>\r\n			<td><strong>M</strong></td>\r\n			<td><strong>L</strong></td>\r\n			<td><strong>XL</strong></td>\r\n			<td><strong>XXL</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>CHEST</strong>&nbsp;(in.)</td>\r\n			<td>44</td>\r\n			<td>46</td>\r\n			<td>48</td>\r\n			<td>50</td>\r\n			<td>52</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>LENGTH</strong>&nbsp;(in.)</td>\r\n			<td>30</td>\r\n			<td>31</td>\r\n			<td>32</td>\r\n			<td>33</td>\r\n			<td>34</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 5, 8, '2020-05-25 02:27:43', '2020-05-25 02:31:22'),
+(6, 'SLIT LONG T-SHIRTS - BLACK', 'slit-long-t-shirts---black', 22, 0, '1', '<p>New Product</p>', '<p><strong>Fit: Long Slim</strong></p>\r\n\r\n<ul>\r\n	<li>Crew neck</li>\r\n	<li>Longer back with split sides</li>\r\n	<li>Longline cut</li>\r\n	<li>Cut longer than standard length</li>\r\n	<li>Machine wash cold</li>\r\n	<li>Fabric:&nbsp; 100% Cotton</li>\r\n</ul>\r\n\r\n<p>Model is 6\'\' 1\" / 167lbs, wears size M</p>', 'HT002-BLACK-1_700x700.jpg', 'Tshirts', '<p>Description for your choose</p>\r\n\r\n<table style=\"border-collapse:collapse; border-color:initial; border-spacing:0px; border-style:initial; border-width:0px; color:rgb(17, 17, 17); float:left; font-family:questrial; font-size:12px; font-stretch:inherit; font-variant-east-asian:inherit; font-variant-numeric:inherit; line-height:inherit; margin:0px 0px 20px; padding:0px; width:505px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td><strong>S</strong></td>\r\n			<td><strong>M</strong></td>\r\n			<td><strong>L</strong></td>\r\n			<td><strong>XL</strong></td>\r\n			<td><strong>XXL</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>CHEST</strong>&nbsp;(in.)</td>\r\n			<td>44</td>\r\n			<td>46</td>\r\n			<td>48</td>\r\n			<td>50</td>\r\n			<td>52</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>LENGTH</strong>&nbsp;(in.)</td>\r\n			<td>30</td>\r\n			<td>31</td>\r\n			<td>32</td>\r\n			<td>33</td>\r\n			<td>34</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 5, 8, '2020-05-25 02:30:44', '2020-05-25 02:35:37'),
+(7, 'ZIPPER LONG T-SHIRTS', 'zipper-long-t-shirts', 30, 20, '1', '<p>New product</p>', '<p><strong>Fit: Long Relaxed</strong></p>\r\n\r\n<ul>\r\n	<li>Crew neck</li>\r\n	<li>Side zip detail</li>\r\n	<li>Longline cut</li>\r\n	<li>Curved hem</li>\r\n	<li>Cut longer than standard length</li>\r\n	<li>Machine wash cold</li>\r\n	<li>100% Cotton</li>\r\n	<li>Imported</li>\r\n</ul>\r\n\r\n<p>Model is 6\'\' 1\" / 167lbs, wears size M</p>', 'HT001-BLACK-1-2_700x700.jpg', 'Tshirts', '<p>Description for your choose</p>\r\n\r\n<table style=\"border-collapse:collapse; border-color:initial; border-spacing:0px; border-style:initial; border-width:0px; color:rgb(17, 17, 17); float:left; font-family:questrial; font-size:12px; font-stretch:inherit; font-variant-east-asian:inherit; font-variant-numeric:inherit; line-height:inherit; margin:0px 0px 20px; padding:0px; width:505px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td><strong>S</strong></td>\r\n			<td><strong>M</strong></td>\r\n			<td><strong>L</strong></td>\r\n			<td><strong>XL</strong></td>\r\n			<td><strong>XXL</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>CHEST</strong>&nbsp;(in.)</td>\r\n			<td>44</td>\r\n			<td>46</td>\r\n			<td>48</td>\r\n			<td>50</td>\r\n			<td>52</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>LENGTH</strong>&nbsp;(in.)</td>\r\n			<td>30</td>\r\n			<td>31</td>\r\n			<td>32</td>\r\n			<td>33</td>\r\n			<td>34</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 5, 8, '2020-05-25 02:33:56', '2020-05-25 02:35:01'),
+(8, 'Long Sleeve Work Shirt - Navy Blue', 'long-sleeve-work-shirt---navy-blue', 20, 0, '1', '<p>New Products</p>', '<p>Generous fit in shoulders and chest<br />\r\n5.25 oz. Twill, 65% Polyester/35% Cotton<br />\r\nThe hardest-working long sleeve work shirt available<br />\r\nMoisture wicking<br />\r\nEasy-care stain release<br />\r\nPencil division in left chest pocket<br />\r\nDoghouse sleeve plackets<br />\r\nNon-break melamine buttons<br />\r\nColors match our Original 874®<br />\r\nNavy Blue<br />\r\nImported</p>', '574_NV_FR.jpg', 'Shirt', '<p>Description for your choose</p>\r\n\r\n<table style=\"border-collapse:collapse; border-color:initial; border-spacing:0px; border-style:initial; border-width:0px; color:rgb(17, 17, 17); float:left; font-family:questrial; font-size:12px; font-stretch:inherit; font-variant-east-asian:inherit; font-variant-numeric:inherit; line-height:inherit; margin:0px 0px 20px; padding:0px; width:505px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td><strong>S</strong></td>\r\n			<td><strong>M</strong></td>\r\n			<td><strong>L</strong></td>\r\n			<td><strong>XL</strong></td>\r\n			<td><strong>XXL</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>CHEST</strong>&nbsp;(in.)</td>\r\n			<td>44</td>\r\n			<td>46</td>\r\n			<td>48</td>\r\n			<td>50</td>\r\n			<td>52</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>LENGTH</strong>&nbsp;(in.)</td>\r\n			<td>30</td>\r\n			<td>31</td>\r\n			<td>32</td>\r\n			<td>33</td>\r\n			<td>34</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 5, 6, '2020-05-25 02:39:02', '2020-05-25 02:39:02'),
+(9, 'FLEX Relaxed Fit Long Sleeve Twill Work Shirt - Charcoal Gray', 'flex-relaxed-fit-long-sleeve-twill-work-shirt---charcoal-gray', 25, 0, '1', '<p>New product</p>', '<p>Generous fit across shoulders and in sleeve lengths<br />\r\n4.6 oz. Stretch Twill, 65% Polyester/35% Cotton<br />\r\nFlex fabric for comfort and ease of movement<br />\r\nMoisture wicking<br />\r\nPencil division in left pocket<br />\r\nImproved breathability for all day comfort<br />\r\nCharcoal Gray<br />\r\nImported</p>', 'WL675_CH_FR.jpg', 'Shirt', '<p>Description for your choose</p>\r\n\r\n<table style=\"border-collapse:collapse; border-color:initial; border-spacing:0px; border-style:initial; border-width:0px; color:rgb(17, 17, 17); float:left; font-family:questrial; font-size:12px; font-stretch:inherit; font-variant-east-asian:inherit; font-variant-numeric:inherit; line-height:inherit; margin:0px 0px 20px; padding:0px; width:505px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td><strong>S</strong></td>\r\n			<td><strong>M</strong></td>\r\n			<td><strong>L</strong></td>\r\n			<td><strong>XL</strong></td>\r\n			<td><strong>XXL</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>CHEST</strong>&nbsp;(in.)</td>\r\n			<td>44</td>\r\n			<td>46</td>\r\n			<td>48</td>\r\n			<td>50</td>\r\n			<td>52</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>LENGTH</strong>&nbsp;(in.)</td>\r\n			<td>30</td>\r\n			<td>31</td>\r\n			<td>32</td>\r\n			<td>33</td>\r\n			<td>34</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 5, 6, '2020-05-25 02:40:18', '2020-05-25 02:40:18'),
+(10, 'BLACK IAN JEAN', 'black-ian-jean', 65, 0, '1', '<p>New product</p>', '<p><strong>FIT : SLIM TAPERED LEG</strong></p>\r\n\r\n<ul>\r\n	<li>Stretch denim for increased wearability</li>\r\n	<li>Mid-rise</li>\r\n	<li>Five pocket styling</li>\r\n	<li>Skinny tapered leg silhouette</li>\r\n	<li>Belt loops with D-Ring</li>\r\n	<li>Pewter-tone hardware</li>\r\n	<li>Tonal stitching</li>\r\n	<li>Machine wash cold</li>\r\n	<li>Imported</li>\r\n</ul>\r\n\r\n<p>Fabric:&nbsp; 98% Cotton / 2% Spandex<br />\r\nModel is 6\'1\" tall 165 lbs, wears size 32</p>', 'HD000_BLACK-9.jpg', 'Jean', '<p>The best your choice</p>', 5, 9, '2020-05-25 02:42:55', '2020-05-25 02:42:55'),
+(11, 'BLACK NATE ZIPPER PANT', 'black-nate-zipper-pant', 60, 0, '1', '<p>New product</p>', '<p>Stretch 11 oz Twill for increased wearability<br />\r\nCream white string on waist<br />\r\nRipped knee<br />\r\n10\" Zipper on side ankles<br />\r\nFive pocket styling<br />\r\nTapered from the knee down<br />\r\nZip fly &amp; Belt loops with D-Ring<br />\r\nMachine wash cold<br />\r\nImported<br />\r\n98% Cotton 2% Spandex<br />\r\nModel is 6\'2\" tall 170 lbs, wears size 32\".</p>', 'HD012-BLACK-1-1_700x700.jpg', 'Jean', '<p>Description for your choose</p>\r\n\r\n<table style=\"border-collapse:collapse; border-color:initial; border-spacing:0px; border-style:initial; border-width:0px; color:rgb(17, 17, 17); float:left; font-family:questrial; font-size:12px; font-stretch:inherit; font-variant-east-asian:inherit; font-variant-numeric:inherit; line-height:inherit; margin:0px 0px 20px; padding:0px; width:505px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td><strong>S</strong></td>\r\n			<td><strong>M</strong></td>\r\n			<td><strong>L</strong></td>\r\n			<td><strong>XL</strong></td>\r\n			<td><strong>XXL</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>CHEST</strong>&nbsp;(in.)</td>\r\n			<td>44</td>\r\n			<td>46</td>\r\n			<td>48</td>\r\n			<td>50</td>\r\n			<td>52</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>LENGTH</strong>&nbsp;(in.)</td>\r\n			<td>30</td>\r\n			<td>31</td>\r\n			<td>32</td>\r\n			<td>33</td>\r\n			<td>34</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 5, 9, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(12, 'BLACK CAMO CARGO JOGGER', 'black-camo-cargo-jogger', 60, 0, '1', '<p>New product</p>', '<p><strong>Fit: Relax Tapered Leg</strong></p>\r\n\r\n<ul>\r\n	<li>Stretch twill for increased wearability</li>\r\n	<li>Side cargo pocket with snap closure</li>\r\n	<li>Snap closure on back pocket</li>\r\n	<li>Tapered leg silhouette with elasticized cuff ribs</li>\r\n	<li>Elasticized waistband</li>\r\n	<li>Drawstring at waist</li>\r\n	<li>D-Ring</li>\r\n	<li>Machine wash cold</li>\r\n	<li>Imported</li>\r\n	<li>Fabric:&nbsp; 98% Cotton / 2% Spandex</li>\r\n</ul>\r\n\r\n<p>Model is 6\'1\" tall, wears size M</p>', 'HD108-BLK-CAMO-1_700x700.jpg', 'Jogger', '<p>Description for your choose</p>\r\n\r\n<table style=\"border-collapse:collapse; border-color:initial; border-spacing:0px; border-style:initial; border-width:0px; color:rgb(17, 17, 17); float:left; font-family:questrial; font-size:12px; font-stretch:inherit; font-variant-east-asian:inherit; font-variant-numeric:inherit; line-height:inherit; margin:0px 0px 20px; padding:0px; width:505px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td><strong>S</strong></td>\r\n			<td><strong>M</strong></td>\r\n			<td><strong>L</strong></td>\r\n			<td><strong>XL</strong></td>\r\n			<td><strong>XXL</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>CHEST</strong>&nbsp;(in.)</td>\r\n			<td>44</td>\r\n			<td>46</td>\r\n			<td>48</td>\r\n			<td>50</td>\r\n			<td>52</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>LENGTH</strong>&nbsp;(in.)</td>\r\n			<td>30</td>\r\n			<td>31</td>\r\n			<td>32</td>\r\n			<td>33</td>\r\n			<td>34</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 5, 10, '2020-05-25 04:51:51', '2020-05-25 04:51:51');
 
 -- --------------------------------------------------------
 
@@ -211,9 +228,30 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `image`, `product_id`, `created_at`, `updated_at`) VALUES
-(1, 'aca-polo-gra-1-w.png', 2, '2020-05-12 05:36:48', '2020-05-12 05:36:48'),
-(2, 'aca-polo-gra-2-w.png', 2, '2020-05-12 05:36:48', '2020-05-12 05:36:48'),
-(3, 'image0.jpeg', 3, '2020-05-16 12:49:01', '2020-05-16 12:49:01');
+(4, 'HT005-WHITE-1_700x700.jpg', 4, '2020-05-25 02:12:06', '2020-05-25 02:12:06'),
+(5, 'HT005-WHITE-3_700x700.jpg', 4, '2020-05-25 02:12:06', '2020-05-25 02:12:06'),
+(6, 'HT002-RED-2_700x700.jpg', 5, '2020-05-25 02:27:43', '2020-05-25 02:27:43'),
+(7, 'HT002-RED-3_700x700.jpg', 5, '2020-05-25 02:27:43', '2020-05-25 02:27:43'),
+(8, 'HT002-BLACK-2_700x700.jpg', 6, '2020-05-25 02:30:44', '2020-05-25 02:30:44'),
+(9, 'HT002-BLACK-3_700x700.jpg', 6, '2020-05-25 02:30:44', '2020-05-25 02:30:44'),
+(10, 'HT001-BLACK_700x700.jpg', 7, '2020-05-25 02:33:56', '2020-05-25 02:33:56'),
+(11, 'HT001-BLACK-2_700x700.jpg', 7, '2020-05-25 02:33:56', '2020-05-25 02:33:56'),
+(12, 'IMG_1614_700x700.jpg', 7, '2020-05-25 02:33:56', '2020-05-25 02:33:56'),
+(13, '574_NV_BK.jpg', 8, '2020-05-25 02:39:02', '2020-05-25 02:39:02'),
+(14, 'WL675_CH_BK.jpg', 9, '2020-05-25 02:40:18', '2020-05-25 02:40:18'),
+(15, 'HD000_BLACK-6_700x700.jpg', 10, '2020-05-25 02:42:55', '2020-05-25 02:42:55'),
+(16, 'HD000_BLACK-4_700x700.jpg', 10, '2020-05-25 02:42:55', '2020-05-25 02:42:55'),
+(17, 'HD000_BLACK-3_700x700.jpg', 10, '2020-05-25 02:42:55', '2020-05-25 02:42:55'),
+(18, 'HD012-BLACK-2_dcc73374-0e97-49c2-a631-1d02434fb696_700x700.jpg', 11, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(19, 'HD012-BLACK-3_90ef0cb3-f119-44dc-ba59-a86ce3b117e9_700x700.jpg', 11, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(20, 'HD012-BLACK-5_e4b11f7a-8752-44c0-a567-42e4fd00c1dd_700x700.jpg', 11, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(21, 'HD012-BLACK-7_0db5ce2c-91ad-43d2-9a72-a311be9bbde3_700x700.jpg', 11, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(22, 'HD012-BLACK-8_22728f44-779e-44d2-b22a-9d97e3a88ba2_700x700.jpg', 11, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(23, 'HD108-BLK-CAMO-3_700x700.jpg', 12, '2020-05-25 04:51:51', '2020-05-25 04:51:51'),
+(24, 'HD108-BLK-CAMO-5_700x700.jpg', 12, '2020-05-25 04:51:51', '2020-05-25 04:51:51'),
+(25, 'HD108-BLK-CAMO-7_700x700.jpg', 12, '2020-05-25 04:51:51', '2020-05-25 04:51:51'),
+(26, 'HD108-BLK-CAMO-8_700x700.jpg', 12, '2020-05-25 04:51:51', '2020-05-25 04:51:51'),
+(27, 'HD108-BLK-CAMO-10_700x700.jpg', 12, '2020-05-25 04:51:51', '2020-05-25 04:51:51');
 
 -- --------------------------------------------------------
 
@@ -234,15 +272,52 @@ CREATE TABLE `product_sizes` (
 --
 
 INSERT INTO `product_sizes` (`id`, `size`, `product_id`, `created_at`, `updated_at`) VALUES
-(1, 'M', 2, '2020-05-12 05:38:30', '2020-05-12 05:38:30'),
-(2, 'M', 2, '2020-05-12 05:38:45', '2020-05-12 05:38:45'),
-(3, 'L', 2, '2020-05-12 05:38:45', '2020-05-12 05:38:45'),
-(4, 'S', 2, '2020-05-12 05:38:45', '2020-05-12 05:38:45'),
-(5, 'XL', 2, '2020-05-12 05:38:45', '2020-05-12 05:38:45'),
-(6, 'S', 3, '2020-05-17 14:43:14', '2020-05-17 14:43:14'),
-(7, 'M', 3, '2020-05-17 14:43:14', '2020-05-17 14:43:14'),
-(8, 'L', 3, '2020-05-17 14:43:14', '2020-05-17 14:43:14'),
-(9, 'XL', 3, '2020-05-17 14:43:14', '2020-05-17 14:43:14');
+(10, 'S', 4, '2020-05-25 02:12:06', '2020-05-25 02:12:06'),
+(11, 'M', 4, '2020-05-25 02:12:06', '2020-05-25 02:12:06'),
+(12, 'L', 4, '2020-05-25 02:12:06', '2020-05-25 02:12:06'),
+(13, 'XL', 4, '2020-05-25 02:12:06', '2020-05-25 02:12:06'),
+(14, 'XXL', 4, '2020-05-25 02:17:00', '2020-05-25 02:17:00'),
+(15, 'S', 5, '2020-05-25 02:27:43', '2020-05-25 02:27:43'),
+(16, 'M', 5, '2020-05-25 02:27:43', '2020-05-25 02:27:43'),
+(17, 'L', 5, '2020-05-25 02:27:43', '2020-05-25 02:27:43'),
+(18, 'XL', 5, '2020-05-25 02:27:43', '2020-05-25 02:27:43'),
+(19, 'XXL', 5, '2020-05-25 02:27:43', '2020-05-25 02:27:43'),
+(20, 'M', 6, '2020-05-25 02:30:44', '2020-05-25 02:30:44'),
+(21, 'M', 6, '2020-05-25 02:30:44', '2020-05-25 02:30:44'),
+(22, 'L', 6, '2020-05-25 02:30:44', '2020-05-25 02:30:44'),
+(23, 'XL', 6, '2020-05-25 02:30:44', '2020-05-25 02:30:44'),
+(24, 'XXL', 6, '2020-05-25 02:30:44', '2020-05-25 02:30:44'),
+(25, 'S', 7, '2020-05-25 02:34:21', '2020-05-25 02:34:21'),
+(26, 'S', 7, '2020-05-25 02:34:21', '2020-05-25 02:34:21'),
+(27, 'L', 7, '2020-05-25 02:34:21', '2020-05-25 02:34:21'),
+(28, 'XL', 7, '2020-05-25 02:34:21', '2020-05-25 02:34:21'),
+(29, 'XXL', 7, '2020-05-25 02:34:21', '2020-05-25 02:34:21'),
+(30, 'S', 8, '2020-05-25 02:39:02', '2020-05-25 02:39:02'),
+(31, 'M', 8, '2020-05-25 02:39:02', '2020-05-25 02:39:02'),
+(32, 'L', 8, '2020-05-25 02:39:02', '2020-05-25 02:39:02'),
+(33, 'XL', 8, '2020-05-25 02:39:02', '2020-05-25 02:39:02'),
+(34, 'S', 9, '2020-05-25 02:40:18', '2020-05-25 02:40:18'),
+(35, 'M', 9, '2020-05-25 02:40:18', '2020-05-25 02:40:18'),
+(36, 'L', 9, '2020-05-25 02:40:18', '2020-05-25 02:40:18'),
+(37, 'XXL', 9, '2020-05-25 02:40:18', '2020-05-25 02:40:18'),
+(38, '28', 10, '2020-05-25 02:42:55', '2020-05-25 02:42:55'),
+(39, '29', 10, '2020-05-25 02:42:55', '2020-05-25 02:42:55'),
+(40, '30', 10, '2020-05-25 02:42:55', '2020-05-25 02:42:55'),
+(41, '31', 10, '2020-05-25 02:42:55', '2020-05-25 02:42:55'),
+(42, '32', 10, '2020-05-25 02:42:55', '2020-05-25 02:42:55'),
+(43, '33', 10, '2020-05-25 02:42:55', '2020-05-25 02:42:55'),
+(44, '28', 11, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(45, '29', 11, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(46, '30', 11, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(47, '31', 11, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(48, '32', 11, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(49, '33', 11, '2020-05-25 04:50:25', '2020-05-25 04:50:25'),
+(50, '28', 12, '2020-05-25 04:51:51', '2020-05-25 04:51:51'),
+(51, '29', 12, '2020-05-25 04:51:51', '2020-05-25 04:51:51'),
+(52, '30', 12, '2020-05-25 04:51:51', '2020-05-25 04:51:51'),
+(53, '31', 12, '2020-05-25 04:51:51', '2020-05-25 04:51:51'),
+(54, '32', 12, '2020-05-25 04:51:51', '2020-05-25 04:51:51'),
+(55, '33', 12, '2020-05-25 04:51:51', '2020-05-25 04:51:51');
 
 -- --------------------------------------------------------
 
@@ -273,11 +348,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `fullname`, `email`, `password`, `gender`, `address`, `phone`, `level`, `status`, `remember_token`, `created_at`, `updated_at`, `code`, `time_code`) VALUES
-(5, 'Admin', 'Admin', 'admin@gmail.com', '$2y$10$H3SEZnrw6elget3GuFWhm.kbfscnyYNd0FGKN.wte89F1nN5DRh9m', '0', '123 ABC', '0908122860', 1, 'admin', 'iUX4TvGwMLftR6X4hLgQR8X6I1izdrLmsDwnCMnoKvDFaxzNk72ExnpJjo8v', '2020-05-12 05:25:33', '2020-05-17 07:54:12', NULL, NULL),
-(6, 'hoanghiep', 'phan trần hoàng hiệp', 'phanhiep2603@gmail.com', '$2y$10$0q97375ZMf30lXxhfOg3vu0nWY1/tO7xK7sen8ul6g.ZrtVpkQ7BO', '1', '334/64/139 Chu Văn An', '0908122860', 2, 'Offline', 'nk92vmla0dlRTL9bAOhuK4AT3EIBJ2tgufZlRQ9XyWsSAQfa9Van0XzAS72W', '2020-05-12 05:37:39', '2020-05-14 08:50:27', '$2y$10$TVzet1STLcCVWYLacauc7.6mUVbO/sSaC9muJ2O3TMv7mnu/Guyje', '2020-05-14 08:50:11'),
-(7, 'user', 'Hiep', 'phanhiep2603@gmail.com', '$2y$10$C4lmeMNq5RrWdcR17YGXl.PI4598cVacb1.zp8y//RCcMIDKG3Fwa', '1', '334/64/139 Chu Văn An', '0908122860', 2, 'Offline', NULL, '2020-05-16 12:45:40', '2020-05-16 12:45:40', NULL, NULL),
-(8, 'hoanghiep123', 'Hoàng Hiệp', 'taoquenroi12111@gmail.com', '$2y$10$pMjyrzxo8PaaCXr7QnBC6O1U0OBrqZq35uH9TxBDweotIrQIlkCK6', '1', '111111', '0912345678', 2, 'Offline', NULL, '2020-05-18 06:18:32', '2020-05-18 06:18:32', NULL, NULL),
-(9, 'hoanghiep1', 'Hoàng Hiệp', 'taoquenroi1311@gmail.com', '$2y$10$.21HX3iE1ldb44lHKiVwd.vD8XdSiAU2y0hXIJUv6mkSrIy41XU4K', '1', '1111', '0912345689', 2, 'Offline', NULL, '2020-05-18 06:21:45', '2020-05-18 06:21:45', NULL, NULL);
+(5, 'Admin', 'Admin', 'admin@gmail.com', '$2y$10$H3SEZnrw6elget3GuFWhm.kbfscnyYNd0FGKN.wte89F1nN5DRh9m', '0', '123 ABC', '0908122860', 1, 'admin', 'L2mgHEVEIO6bVM3vrwaWSTmPsP2XrxZvKm86tM6b8bg5q83FTAPerKFxD5pc', '2020-05-12 05:25:33', '2020-05-17 07:54:12', NULL, NULL),
+(6, 'hoanghiep', 'phan trần hoàng hiệp', 'phanhiep2603@gmail.com', '$2y$10$0q97375ZMf30lXxhfOg3vu0nWY1/tO7xK7sen8ul6g.ZrtVpkQ7BO', '1', '334/64/139 Chu Văn An', '0908122860', 2, 'Offline', 'BQfuyOJ1VE3crDCFdSj6nsOiNShlKttgMKtegoEGXKNJVtnGjzIZI9RlrRwM', '2020-05-12 05:37:39', '2020-05-14 08:50:27', '$2y$10$TVzet1STLcCVWYLacauc7.6mUVbO/sSaC9muJ2O3TMv7mnu/Guyje', '2020-05-14 08:50:11');
 
 --
 -- Indexes for dumped tables
@@ -362,49 +434,49 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `product_sizes`
 --
 ALTER TABLE `product_sizes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `users`

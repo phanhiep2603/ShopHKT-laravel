@@ -33,15 +33,15 @@
                         </div>
                         <div class="form-group">
                             <label>Category Name</label>
-                            <input class="form-control" name="txtCateName" placeholder="Please Enter Category Name" />
+                            <input class="form-control" name="txtCateName" placeholder="Please Enter Category Name" required/>
                         </div>
                         <div class="form-group">
                             <label>Category Keywords</label>
-                            <input class="form-control" name="txtKeywords" placeholder="Please Enter Category Keywords" />
+                            <input class="form-control" name="txtKeywords" placeholder="Please Enter Category Keywords" required/>
                         </div>
                         <div class="form-group">
                             <label>Category Description</label>
-                            <textarea class="form-control" rows="3" name="txtDescription"></textarea>
+                            <textarea class="form-control" rows="3" name="txtDescription" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Category Add</button>
                         <button type="reset" class="btn btn-warning">Reset</button>

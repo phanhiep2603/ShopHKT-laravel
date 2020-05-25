@@ -30,33 +30,33 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input class="form-control" name="txtName" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" />
+                                    <input class="form-control" name="txtName" placeholder="Please Enter Product Name" value="{!! old('txtName') !!}" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Price</label>
-                                    <input class="form-control" name="txtPrice" placeholder="Please Enter Product Price" value="{!! old('txtPrice') !!}" />
+                                    <input class="form-control" name="txtPrice" placeholder="Please Enter Product Price" value="{!! old('txtPrice') !!}" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Intro</label>
-                                    <textarea class="form-control" rows="3" name="txtIntro">{!! old('txtIntro') !!}</textarea>
+                                    <textarea class="form-control" rows="3" name="txtIntro" required>{!! old('txtIntro') !!}</textarea>
                                     <script type="text/javascript">CKEDITOR.replace("txtIntro")</script>
                                 </div>
                                 <div class="form-group">
                                     <label>Content</label>
-                                    <textarea class="form-control" rows="3" name="txtContent">{!! old('txtContent') !!}</textarea>
+                                    <textarea class="form-control" rows="3" name="txtContent" required>{!! old('txtContent') !!}</textarea>
                                     <script type="text/javascript">CKEDITOR.replace("txtContent")</script>
                                 </div>
                                 <div class="form-group">
                                     <label>Images</label>
-                                    <input type="file" name="fImages" value="{!! old('fImages') !!}">
+                                    <input type="file" name="fImages" value="{!! old('fImages') !!}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Product Keywords</label>
-                                    <input class="form-control" name="txtKeywords" placeholder="Please Enter Product Keywords" value="{!! old('txtKeywords') !!}" />
+                                    <input class="form-control" name="txtKeywords" placeholder="Please Enter Product Keywords" value="{!! old('txtKeywords') !!}" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Product Description</label>
-                                    <textarea class="form-control" rows="3" name="txtDescription" placeholder="Please Enter Product Description">{!! old('txtDescription') !!}</textarea>
+                                    <textarea class="form-control" rows="3" name="txtDescription" placeholder="Please Enter Product Description" required>{!! old('txtDescription') !!}</textarea>
                                     <script type="text/javascript">CKEDITOR.replace("txtDescription")</script>
                                 </div>
                                 

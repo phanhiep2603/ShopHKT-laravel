@@ -91,7 +91,7 @@ ul.categorymenu > li { position:relative; margin: 0; border-right:1px solid #E7E
 ul.categorymenu > li a.home span { text-indent:-9999px; }
 ul.categorymenu > li:last-child { border:none }
 ul.categorymenu > li > a { text-decoration: none; display: block; z-index: 6; position: relative; color:#4b5b58!Important; text-transform:uppercase; font-size:14px }
-ul.categorymenu > li:hover > a, ul.categorymenu > li > a.active { color:#fff!important; text-shadow:none; background-color:#F54F4D }
+ul.categorymenu > li:hover > a, ul.categorymenu > li > a.active { color:#fff!important; text-shadow:none; background-color:#4da6ff }
 ul.categorymenu > li > div { display: block; padding:15px; position: absolute; top: 97%; left: 0; z-index: 99999; display: none; float: left; min-width: 120px; margin: 1px 0 0; list-style: none; background-color: #ffffff; border: 1px solid #E7E7E7; border: 1px solid rgba(0, 0, 0, 0.2); *border-right-width: 2px;
  *border-bottom-width: 2px;
 -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -webkit-background-clip: padding-box; -moz-background-clip: padding; background-clip: padding-box; }
@@ -103,7 +103,7 @@ ul.categorymenu > li ul + ul { padding-left: 20px; }
 ul.categorymenu > li ul > li { display:block; float:left; width:100%; border-bottom:1px dashed #dddddd }
 ul.categorymenu > li > div > ul.arrow li a { padding:8px 8px 8px 8px; display:block }
 ul.categorymenu > li ul > li > a { text-decoration: none; display: block; white-space: nowrap; min-width: 150px; padding:8px; }
-ul.categorymenu > li > div > ul li:hover a { background-color: #F54F4D; color:#fff; text-shadow:none }
+ul.categorymenu > li > div > ul li:hover a { background-color: #4da6ff; color:#fff; text-shadow:none }
 ul.categorymenu > li > div > ul > li > a { color: #999999; }
 ul.categorymenu > li ul > li img { margin:3px; max-width:none }
 .breadcrumb { margin-bottom:30px; background:none; border:1px solid #efefef }
@@ -117,7 +117,7 @@ ul.categorymenu li div ul { margin:0px; }
 ul.categorymenu > li > div > ul > li > div ul li a { background:#fff }
 ul.categorymenu > li > div > ul > li:hover > div { display: inline-block; width:100%; vertical-align:top; padding:20px 30px 20px 20px }
 ul.categorymenu > li > div > ul li:hover a { background-color: #fff; color:#999999; }
-ul.categorymenu > li > div > ul li:hover > a { background-color: #F54F4D; color:#fff; }
+ul.categorymenu > li > div > ul li:hover > a { background-color: #4da6ff; color:#fff; }
 ul.categorymenu > li > div > ul > li > div ul li > div { display:none; display: block; padding:15px; position: absolute; top: 10%; left: 90%; z-index: 99999; display: none; float: left; min-width: 120px; margin: 1px 0 0; list-style: none; background-color: #ffffff; border: 1px solid #E7E7E7; border: 1px solid rgba(0, 0, 0, 0.2); *border-right-width: 2px;
 *border-bottom-width: 2px;
 -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -webkit-background-clip: padding-box; -moz-background-clip: padding; background-clip: padding-box; }
@@ -135,7 +135,7 @@ ul.categorymenu li div ul { margin:0px; }
 ul.categorymenu > li > div > ul > li > div ul li a { background:#fff }
 ul.categorymenu > li > div > ul > li:hover > div { display:inline-block; width:100%; vertical-align:top; padding:20px 30px 20px 20px }
 ul.categorymenu > li > div > ul li:hover a { background-color: #fff; color:#999999; }
-ul.categorymenu > li > div > ul li:hover > a { background-color: #F54F4D; color:#fff; }
+ul.categorymenu > li > div > ul li:hover > a { background-color: #4da6ff; color:#fff; }
 ul.categorymenu > li > div > ul > li > div ul li > div { display:none; display: block; padding:15px; position: absolute; top: 10%; left: 90%; z-index: 99999; display: none; float: left; min-width: 120px; margin: 1px 0 0; list-style: none; background-color: #ffffff; border: 1px solid #E7E7E7; border: 1px solid rgba(0, 0, 0, 0.2); *border-right-width: 2px;
 *border-bottom-width: 2px;
 -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -webkit-background-clip: padding-box; -moz-background-clip: padding; background-clip: padding-box; }
@@ -181,7 +181,7 @@ ul.categorymenu > li > div > ul > li > div ul li:hover > div { display: table; w
 .thumbnail .pricetag { width:221px; height:37px; background:url(../img/pricetag.png) no-repeat right 0; margin-top:8px; position:relative; padding:9px 9px 9px 30px; margin-bottom:20px }
 .thumbnail .pricetag .spiral { position:absolute; top:-19px; left:10px; background:url(../img/spiral.png) no-repeat right 0; height:50px; width:35px }
 .thumbnail a.productcart { background: #F54F4D url(../img/prodcutcart.png) right 7px no-repeat; color:#fff; float:right; padding:8px 27px 8px 8px; font-size:13px; }
-.thumbnail a.productcart:hover { background: #db420e url(../img/prodcutcart.png) right 7px no-repeat; }
+.thumbnail a.productcart:hover { background: #4da6ff url(../img/prodcutcart.png) right 7px no-repeat; }
 .thumbnail .shortlinks { background:#fff; position:absolute; left:0; top:60%; width:100%; text-align:center; padding:5px 0; display:none }
 .thumbnail .shortlinks a { font-size:12px; padding:5px 5px 0 25px; background:url(../img/sprite.png) 0 0 no-repeat; }
 .thumbnail .shortlinks a.details { background-position:0 -384px }
